@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "name": "Workshop React",
+      "theme": "Front-end",
+      "date": "20/05/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "2",
+      "name": "Conference JS",
+      "theme": "Front-end",
+      "date": "15/06/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "3",
+      "name": "Vue.js Masterclass",
+      "theme": "Front-end",
+      "date": "10/07/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "4",
+      "name": "Angular Workshop",
+      "theme": "Front-end",
+      "date": "25/07/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "5",
+      "name": "UX Design Summit",
+      "theme": "Design",
+      "date": "05/08/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "6",
+      "name": "Figma para Devs",
+      "theme": "Design",
+      "date": "20/08/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "7",
+      "name": "Design Systems na Prática",
+      "theme": "Design",
+      "date": "10/09/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "8",
+      "name": "Growth Hacking com IA",
+      "theme": "Marketing",
+      "date": "15/09/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "9",
+      "name": "Marketing Digital 2025",
+      "theme": "Marketing",
+      "date": "01/10/2025",
+      "image": "https://placehold.co/282x236"
+    },
+    {
+      "id": "10",
+      "name": "SEO Avançado",
+      "theme": "Marketing",
+      "date": "20/10/2025",
+      "image": "https://placehold.co/282x236"
+    }
+  ]
+}
