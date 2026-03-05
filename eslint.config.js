@@ -24,6 +24,15 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'import/no-extraneus-dependencies': ['error', {
+        'devDependencies': [
+          '**/*.test.ts',
+          '**/*.spec.ts',
+          '**/*.config.ts',
+          'vite.config.ts',
+          'vitest.config.ts'
+        ]
+      }]
     },
   },
 ])
