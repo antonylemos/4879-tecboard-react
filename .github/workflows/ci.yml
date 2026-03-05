@@ -1,0 +1,7 @@
+# .github/workflows/ci.yml
+on:
+  - create
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    
