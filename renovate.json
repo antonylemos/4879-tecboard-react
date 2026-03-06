@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:weekends",
+    ":automergeMinor",
+    ":semanticCommits"
+  ],
+  "packageRules": [
+    {
+      "description": "Automerge patch updates for non-critical deps",
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    },
+    {
+      "description": "Group React ecosystem",
+      "matchPackageNames": ["/^react/", "/^@types\\/react/"],
+      "groupName": "react"
+    },
+    {
+      "description": "Group MUI ecosystem",
+      "matchPackageNames": ["/^@mui\\//", "/^@emotion\\//"],
+      "groupName": "mui"
+    },
+    {
+      "description": "Group TanStack ecosystem",
+      "matchPackageNames": ["/^@tanstack\\//"],
+      "groupName": "tanstack"
+    },
+    {
+      "description": "Group forms & validation",
+      "matchPackageNames": ["/^zod/", "/^react-hook-form/", "/^@hookform\\//"],
+      "groupName": "forms"
+    },
+    {
+      "description": "Group ESLint ecosystem",
+      "matchPackageNames": ["/^eslint/", "/^@typescript-eslint/"],
+      "groupName": "eslint"
+    },
+    {
+      "description": "Require manual review for major updates",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["major-update", "needs-review"]
+    }
+  ]
+}
