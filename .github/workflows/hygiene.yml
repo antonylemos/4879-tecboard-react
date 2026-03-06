@@ -1,0 +1,22 @@
+# .github/workflows/hygiene.yml
+name: Dependency Hygiene
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Segunda 9h
+  pull_request:
+    paths: ['package.json', 'pnpm-lock.yaml', 'src/**']
+
+jobs:
+  knip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - name: Run knip
+        run: pnpm dlx knip --reporter compact
+      - name: Fail on unused deps
+        run: pnpm dlx knip --no-exit-code --include dependencies

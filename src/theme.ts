@@ -131,5 +131,3 @@ export const lightTheme = createTheme({
     primary: { main: '#17D9B1' },
   },
 })
-
-export default darkTheme
