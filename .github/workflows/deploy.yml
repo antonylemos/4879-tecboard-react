@@ -28,34 +28,23 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
       - name: Health check
         id: health
         run: |
-          FAILURES=0
-          for i in 1 2 3; do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ vars.PROD_URL }}")
-            if [ "$STATUS" != "200" ]; then
-              FAILURES=$((FAILURES + 1))
-              echo "⚠️ Check $i failed (HTTP $STATUS)"
-            else
-              echo "✅ Check $i passed"
-            fi
-            sleep 30
-          done
-          echo "failures=$FAILURES" >> $GITHUB_OUTPUT
+          echo "⚠️ Simulando falha no health check..."
+          echo "failures=3" >> $GITHUB_OUTPUT
 
       - name: Content validation
         id: content
         run: |
-          BODY=$(curl -s "${{ vars.PROD_URL }}")
-          if echo "$BODY" | grep -q "Tecboard"; then
-            echo "valid=true" >> $GITHUB_OUTPUT
-          else
-            echo "valid=false" >> $GITHUB_OUTPUT
-          fi
+          echo "⚠️ Simulando falha na validação de conteúdo..."
+          echo "valid=false" >> $GITHUB_OUTPUT
 
       - name: Auto-rollback
-        if: steps.health.outputs.failures >= 0 || steps.content.outputs.valid == 'false'
+        if: steps.health.outputs.failures > 0 || steps.content.outputs.valid == 'false'
         run: |
           echo "🚨 Rollback no Vercel..."
-          pnpm dlx vercel rollback --token=${{ secrets.VERCEL_TOKEN }}
+          pnpm dlx vercel rollback --yes --token=${{ secrets.VERCEL_TOKEN }}
