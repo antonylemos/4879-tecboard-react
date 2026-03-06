@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: '0 9 * * 1'  # Segunda 9h
   push:
-    branches: [main]
     paths: ['package.json', 'pnpm-lock.yaml']
 
 jobs:
