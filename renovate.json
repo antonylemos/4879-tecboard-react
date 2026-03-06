@@ -44,6 +44,32 @@
       "matchUpdateTypes": ["major"],
       "automerge": false,
       "labels": ["major-update", "needs-review"]
+    },
+    {
+      "description": "Camada 1: auto-merge @types silenciosamente no fim de semana",
+      "matchPackageNames": ["^@types/"],
+      "automerge": true,
+      "automergeType": "branch",
+      "groupName": "type-definitions",
+      "schedule": ["after 10pm on friday", "before 6am on monday"]
+    },
+    {
+      "description": "Camada 2: agrupar minor updates semanalmente",
+      "matchUpdateTypes": ["minor"],
+      "groupName": "minor-updates-weekly",
+      "schedule": ["on monday"]
+    },
+    {
+      "description": "Camada 3: major updates — manual, com label",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["major-update", "needs-review"],
+      "prPriority": 10
+    },
+    {
+      "description": "Pin GitHub Actions por digest para segurança",
+      "matchManagers": ["github-actions"],
+      "pinDigests": true
     }
   ]
 }
