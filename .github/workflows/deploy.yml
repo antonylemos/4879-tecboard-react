@@ -23,3 +23,39 @@ jobs:
 
       - name: Deploy
         run: pnpm dlx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+
+  post-deploy-check:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Health check
+        id: health
+        run: |
+          FAILURES=0
+          for i in 1 2 3; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ vars.PROD_URL }}")
+            if [ "$STATUS" != "200" ]; then
+              FAILURES=$((FAILURES + 1))
+              echo "⚠️ Check $i failed (HTTP $STATUS)"
+            else
+              echo "✅ Check $i passed"
+            fi
+            sleep 30
+          done
+          echo "failures=$FAILURES" >> $GITHUB_OUTPUT
+
+      - name: Content validation
+        id: content
+        run: |
+          BODY=$(curl -s "${{ vars.PROD_URL }}")
+          if echo "$BODY" | grep -q "Tecboard"; then
+            echo "valid=true" >> $GITHUB_OUTPUT
+          else
+            echo "valid=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Auto-rollback
+        if: steps.health.outputs.failures >= 0 || steps.content.outputs.valid == 'false'
+        run: |
+          echo "🚨 Rollback no Vercel..."
+          pnpm dlx vercel rollback --token=${{ secrets.VERCEL_TOKEN }}
