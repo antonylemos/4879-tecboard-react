@@ -17,6 +17,6 @@ jobs:
         with: { node-version: 20, cache: 'pnpm' }
       - run: pnpm install --frozen-lockfile
       - name: Security audit
-        run: pnpm audit --severity high
+        run: pnpm audit --audit-level high
       - name: Verify signatures (npm)
         run: npx -y npm@latest audit signatures
