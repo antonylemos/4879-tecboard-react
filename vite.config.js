@@ -14,6 +14,15 @@ export default defineConfig({
           environment: 'node',
           setupFiles: ['./src/test/setups.ts']
         }
+      },
+      {
+        test: {
+          name: 'visual',
+          globals: true,
+          include: ['src/test/visual-regression.test.tsx'],
+          environment: 'jsdom',
+          setupFiles: ['./src/test/setups.ts']
+        }
       }
     ]
   }

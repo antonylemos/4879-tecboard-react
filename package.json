@@ -10,6 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:api": "vitest run --project api",
+    "test:visual": "vitest run --project visual",
+    "test:visual:update": "vitest run --project visual -u",
     "server": "json-server db.json --port 3000",
     "update:tanstack": "tsx scripts/update-tanstack.ts"
   },

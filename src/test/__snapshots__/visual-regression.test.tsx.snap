@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Visual Regression > should test card changes 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1dbye22-MuiPaper-root-MuiCard-root"
+    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+  >
+    <button
+      aria-label="adicionar aos favoritos"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1oe9tq1-MuiButtonBase-root-MuiIconButton-root"
+      tabindex="0"
+      type="button"
+    >
+      🤍
+    </button>
+    <a
+      class="MuiButtonBase-root MuiCardActionArea-root css-coyn9m-MuiButtonBase-root-MuiCardActionArea-root"
+      href="/events/42"
+      tabindex="0"
+    >
+      <img
+        alt="React Summit 2024"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1kuwa16-MuiCardMedia-root"
+        height="236"
+        src="https://placehold.co/282x236"
+      />
+      <div
+        class="MuiCardContent-root css-ah7ast-MuiCardContent-root"
+      >
+        <div
+          class="MuiBox-root css-1f979py"
+        >
+          <span
+            class="MuiTypography-root MuiTypography-caption css-mpaqru-MuiTypography-root"
+          >
+            Front-end
+          </span>
+        </div>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-7ioo96-MuiTypography-root"
+        >
+          15/06/2024
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-v9st78-MuiTypography-root"
+        >
+          React Summit 2024
+        </p>
+      </div>
+      <span
+        class="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
+      />
+    </a>
+  </div>
+</div>
+`;
