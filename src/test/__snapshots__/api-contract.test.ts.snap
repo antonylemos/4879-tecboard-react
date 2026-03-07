@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`API Contract > should event structure dont change 1`] = `
+{
+  "date": "15/06/2024",
+  "id": "1",
+  "image": "https://placehold.co/282x236",
+  "name": "React Summit 2024",
+  "theme": "Front-end",
+}
+`;
