@@ -30,7 +30,10 @@ export function EventCard({ event }: EventCardProps) {
 
   const favoriteButton = (
     <IconButton
-      onClick={() => toggleFavorite(event.id)}
+      onClick={() => {
+        toggleFavorite(event.id)
+        throw new Error('Deu ruim!')
+      }}
       aria-label={favorite ? 'remover dos favoritos' : 'adicionar aos favoritos'}
       sx={{
         position: 'absolute',
