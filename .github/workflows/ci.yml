@@ -32,3 +32,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: API Test
+        run: pnpm test:api
+
+      - name: Visual Test
+        run: pnpm test:visual
