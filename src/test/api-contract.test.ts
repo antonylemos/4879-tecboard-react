@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
-import { Event, PaginatedEvents } from "../features/events/types"
+import { Event } from "../features/events/types"
 import { api } from "../lib/api"
 
 const mockEvent: Event = {
@@ -8,14 +8,6 @@ const mockEvent: Event = {
   date: '15/06/2024',
   theme: 'Front-end',
   image: 'https://placehold.co/282x236',
-}
-
-const mockPaginatedEvents: PaginatedEvents = {
-  data: [mockEvent],
-  next: 2,
-  prev: null,
-  pages: 5,
-  items: 20,
 }
 
 function mockJsonResponse(body: unknown, status = 200) {
