@@ -1,8 +1,6 @@
 # .github/workflows/hygiene.yml
 name: Dependency Hygiene
 on:
-  schedule:
-    - cron: '0 9 * * 1'  # Segunda 9h
   pull_request:
     paths: ['package.json', 'pnpm-lock.yaml', 'src/**']
 
